@@ -9,44 +9,24 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmployeeService {
-
-    @Autowired
-    private EmployeeRepository employeeRepository;
-
+public interface EmployeeService {
 
     // Get all employees
-    public List<Employee> getAllEmployees() {
-    	return employeeRepository.findAll();
-    }
+    public List<Employee> getAllEmployees();
 
     // Get employee by ID
-    public Optional<Employee> getEmployeeById(Long id) {
-    	return employeeRepository.findById(id);
-    }
+    public Optional<Employee> getEmployeeById(Long id);
 
     // Save a new employee
-    public Employee saveEmployee(Employee employee) {
-    	return employeeRepository.save(employee);
-    }
+    public Employee saveEmployee(Employee employee);
 
     // Update an existing employee
-    public Employee updateEmployee(Long id, Employee updatedEmployee) {
-
-    	if (employeeRepository.existsById(id)) {
-            return employeeRepository.save(updatedEmployee);
-        }
-    	return null;
-    }
+    public Employee updateEmployee(Long id, Employee updatedEmployee);
 
     // Delete employee by ID
-    public void deleteEmployeeById(Long id) {
-    	employeeRepository.deleteById(id);
-    }
+    public void deleteEmployeeById(Long id);
 
     // Delete all employees
-    public void deleteAllEmployees() {
-    	employeeRepository.deleteAll();
-    }
+    public void deleteAllEmployees();
 }
 
